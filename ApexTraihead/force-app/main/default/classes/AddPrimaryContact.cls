@@ -1,12 +1,15 @@
-//Tạo một lớp Apex có thể Queueable để chèn cùng một Liên hệ cho mỗi Tài khoản cho một trạng thái cụ thể.
-//Yêu cầu Tạo một lớp Apex có thể xếp hàng để chèn cùng một Contact cho mỗi Account cho một trạng thái cụ thể.
-//Create an Apex class:
-//  Name: AddPrimaryContact
-//  Interface: Queueable
-//  Tạo một hàm tạo cho lớp chấp nhận đối số đầu tiên của nó là Contact sObject và đối số thứ hai dưới dạng String cho chữ viết tắt của State
-//  Phương thức thực thi phải truy vấn tối đa 200 Account có BillingState được chỉ định bởi tên viết tắt của State
-//  Được truyền vào hàm tạo và (chèn bản ghi sObject Contact) được (liên kết với từng Account). Nhìn vào phương thức sObject clone().
-//  Sobject (Account, contact, lead,...)
+// Create an Apex class:
+
+//     Name: AddPrimaryContact
+//     Interface: Queueable
+//     Create a constructor for the class that accepts as its first argument a Contact sObject and a second argument as a string for the State abbreviation
+//     The execute method must query for a maximum of 200 Accounts with the BillingState specified by the State abbreviation passed into the constructor and insert the Contact sObject record associated to each Account. Look at the sObject clone() method.
+
+// Create an Apex test class:
+
+//     Name: AddPrimaryContactTest
+//     In the test class, insert 50 Account records for BillingState NY and 50 Account records for BillingState CA
+//     Create an instance of the AddPrimaryContact class, enqueue the job, and assert that a Contact record was inserted for each of the 50 Accounts with the BillingState of CA
 public class AddPrimaryContact implements Queueable {
   private String state;
   private Contact contact;
