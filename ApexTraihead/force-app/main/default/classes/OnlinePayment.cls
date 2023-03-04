@@ -23,7 +23,4 @@ public class OnlinePayment extends PaymentCustom {
   }
 }
 
-// Class OnlinePayment kế thừa tất cả các thuộc tính và phương thức của lớp cha Payment,
-//  bổ sung thêm thuộc tính paymentGateway đại diện cho cổng thanh toán được sử dụng.
-//  Ngoài ra, lớp con còn định nghĩa lại 2 phương thức của lớp cha getDescription() và processPayment() để phù hợp với kiểu thanh toán trực tuyến.
 

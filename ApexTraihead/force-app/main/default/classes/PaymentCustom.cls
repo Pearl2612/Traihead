@@ -101,10 +101,4 @@ public virtual class PaymentCustom {
   }
 }
 
-// Bạn nên khai báo lớp của bạn là ảo (virtual) nếu bạn muốn cho phép lớp con (subclass) kế thừa và ghi đè
-// (override) các phương thức (method) hoặc thuộc tính (property) của lớp cha (base class).
-
-// Bạn nên khai báo lớp của bạn là trừu tượng (abstract) nếu bạn muốn cho phép định nghĩa các phương thức (method)
-// và thuộc tính (property) mà không cần cung cấp thân hàm (implementation) của chúng. Các lớp con (subclass) sẽ phải cung cấp thân hàm (implementation) cho các phương thức
-// và thuộc tính trừu tượng (abstract) này để có thể sử dụng chúng được.
 

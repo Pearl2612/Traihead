@@ -1,3 +1,12 @@
+//Tạo một lớp Apex gọi một điểm cuối REST để trả về tên của một con vật, viết các bài kiểm tra đơn vị đạt được mức độ bao phủ mã 100% 
+//cho lớp bằng cách sử dụng một phản hồi giả và chạy các bài kiểm tra Apex của bạn.
+//Công việc chuẩn bị: Đảm bảo rằng các Trang web Từ xa từ thiết bị đầu tiên đã được thiết lập.
+// Create an Apex class:
+// Name: AnimalLocator
+// Method name: getAnimalNameById
+// Phương thức phải chấp nhận một Số nguyên và trả về một Chuỗi.
+// Phương thức phải gọi https://th-apex-http-callout.herokuapp.com/animals/<id>, thay thế <id> bằng ID được truyền vào phương thức
+// phương thức này trả về giá trị của thuộc tính name (nghĩa là tên động vật)
 public class AnimalsCallouts {
     public static HttpResponse makeGetCallout() {
         Http http = new Http();
@@ -10,6 +19,7 @@ public class AnimalsCallouts {
             // Deserializes the JSON string into collections of primitive data types.
             // JSON.deserializeUntyped chuyển đổi chuỗi JSON thành đối tượng Apex tương ứng.
             Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+            System.debug(results);
             // Cast the values in the 'animals' key as a list
             List<Object> animals = (List<Object>) results.get('animals');
             System.debug('Received the following animals:');
