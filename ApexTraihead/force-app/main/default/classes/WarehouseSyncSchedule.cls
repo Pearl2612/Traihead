@@ -3,7 +3,7 @@ global with sharing class WarehouseSyncSchedule implements Schedulable {
   //lớp WarehouseSyncSchedule lấy đối tượng SchedulableContext làm tham số, chứa thông tin về công việc đã lên lịch.
   //Khi phương thức thực thi được gọi, nó sẽ xử lý một công việc mới cho lớp WarehouseCalloutService bằng cách sử dụng phương thức System.enqueueJob().
   global void execute(SchedulableContext ctx) {
-    System.enqueueJob(new WarehouseCalloutService());
+    WarehouseCalloutService.runWarehouseEquipmentSync();
   }
 }
 
